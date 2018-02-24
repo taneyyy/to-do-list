@@ -1,0 +1,23 @@
+
+
+    <%= form_with model: @item, local: true, remote: true do |form| %>
+    
+        
+    
+        <p>
+            <%= form.label :name, 'Item Name' %><br>
+            <%= form.text_field :name %>
+        </p>
+        
+        <p>
+            <%= form.label :date, 'Due Date (yyyy-mm-dd)' %><br>
+            <%= form.text_field :date %>
+        </p>
+        
+        <p>
+            <%= form.submit 'Save Item'%>
+        </p>
+        
+    
+    <% end %>
+    

@@ -1,0 +1,21 @@
+<h1>List</h1>
+
+<%= link_to 'Add New Item', new_item_path %>
+
+<table>
+    <tr>
+        <th>To-do Item</th>
+        <th>Due Date</th>
+    </tr>
+    
+    <% @items.each do |i| %>
+        <tr>
+            <td><%= i.name %></td>
+            <td><%= i.date %></td>
+            <td><%= link_to 'Show', item_path(i) %></td>
+            <td><%= link_to 'Edit', edit_item_path(i) %></td>
+        </tr>
+    <% end %>
+    
+</table>
+

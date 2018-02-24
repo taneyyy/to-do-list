@@ -1,0 +1,10 @@
+<p>
+    Item:<%= @item.name %>
+</p>
+
+<p>
+    Date:<%= @item.date %>
+</p>
+
+<%= link_to 'Back to List', items_path %>
+<%= link_to 'Edit', edit_item_path(@item.id) %>
