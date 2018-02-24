@@ -9,11 +9,15 @@
 <p>
     <% if @item.done %>
       <p> Done: true </p>
+      <%= link_to 'Back to Done List', show_completed_path %>
+      <%= link_to 'Delete', item_path(@item.id) ,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
     <% else %>
        <p> Done: false </p>
+       <%= link_to 'Back to List', items_path %>
+       <%= link_to 'Edit', edit_item_path(@item.id) %>
     <% end %>
     
 </p>
 
-<%= link_to 'Back to List', items_path %>
-<%= link_to 'Edit', edit_item_path(@item.id) %>

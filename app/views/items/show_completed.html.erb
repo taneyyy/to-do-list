@@ -1,8 +1,4 @@
-<h1>List</h1>
-
-<%= link_to 'Add New Item', new_item_path %>
-
-<%= link_to 'Show completed Items', show_completed_path %>
+<h1>Completed To-Do Items</h1>
 
 <table>
     <tr>
@@ -15,10 +11,9 @@
             <td><%= i.name %></td>
             <td><%= i.date %></td>
             <td><%= link_to 'Show', item_path(i) %></td>
-            <td><%= link_to 'Edit', edit_item_path(i) %></td>
-            <td><%= link_to 'Mark as Done', mark_item_path(i) unless i.done %></td>
         </tr>
     <% end %>
     
 </table>
 
+<%= link_to 'Back to List', items_path %>
