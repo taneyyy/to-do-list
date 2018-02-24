@@ -36,6 +36,17 @@ class ItemsController < ApplicationController
         end
     end
     
+    def mark
+        @item = Item.find(params[:id])
+        
+        if @item.update(done: true)
+            redirect_to '/items'
+        else
+            logger.debug "cannot mark as done"
+        end
+        
+    end
+    
     
     private
         def item_params

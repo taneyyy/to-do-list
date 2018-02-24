@@ -14,6 +14,7 @@
             <td><%= i.date %></td>
             <td><%= link_to 'Show', item_path(i) %></td>
             <td><%= link_to 'Edit', edit_item_path(i) %></td>
+            <td><%= link_to 'Mark as Done', mark_item_path(i) unless i.done %></td>
         </tr>
     <% end %>
     
