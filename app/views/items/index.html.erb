@@ -10,13 +10,13 @@
         <th>Due Date</th>
     </tr>
     
-    <% @items.each do |i| %>
+    <% @items.reject(&:done).each do |i| %>
         <tr>
             <td><%= i.name %></td>
             <td><%= i.date %></td>
             <td><%= link_to 'Show', item_path(i) %></td>
             <td><%= link_to 'Edit', edit_item_path(i) %></td>
-            <td><%= link_to 'Mark as Done', mark_item_path(i) unless i.done %></td>
+            <td><%= link_to 'Mark as Done', mark_item_path(i) %></td>
         </tr>
     <% end %>
     
