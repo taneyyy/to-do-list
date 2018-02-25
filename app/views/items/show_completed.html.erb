@@ -11,6 +11,8 @@
             <td><%= i.name %></td>
             <td><%= i.date %></td>
             <td><%= link_to 'Show', item_path(i) %></td>
+            <td><%= link_to 'Delete', item_path(i.id) ,
+              method: :delete %></td>
         </tr>
     <% end %>
     

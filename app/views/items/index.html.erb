@@ -1,24 +1,31 @@
 <h1>List</h1>
-
-<%= link_to 'Add New Item', new_item_path %>
-
-<%= link_to 'Show completed Items', show_completed_path %>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<%= form_with(model: @item) do |form| %>
+        <p>
+            <%= form.label :name, 'Item Name' %><br>
+            <%= form.text_field :name %>
+        </p>
+        
+        <p>
+            <%= form.label :date, 'Due Date (yyyy-mm-dd)' %><br>
+            <%= form.text_field :date %>
+        </p>
+        
+        <p>
+            <%= form.submit 'Save Item' %>
+        </p>
+    
+<% end %>
 
 <table>
-    <tr>
+        <tr>
         <th>To-do Item</th>
         <th>Due Date</th>
     </tr>
-    
-    <% @items.reject(&:done).each do |i| %>
-        <tr>
-            <td><%= i.name %></td>
-            <td><%= i.date %></td>
-            <td><%= link_to 'Show', item_path(i) %></td>
-            <td><%= link_to 'Edit', edit_item_path(i) %></td>
-            <td><%= link_to 'Mark as Done', mark_item_path(i) %></td>
-        </tr>
-    <% end %>
-    
+</table>
+<table id="items">
+        <%= render @items %>
 </table>
 
+<%= link_to 'Show completed Items', show_completed_path %>
+<br>

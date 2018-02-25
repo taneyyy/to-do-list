@@ -1,0 +1,9 @@
+<% if not item.done %>
+<tr>
+   <td><%= item.name %></td>
+   <td><%= item.date %></td>
+   <td><%= link_to 'Show', item_path(item) %></td>
+   <td><%= link_to 'Edit', edit_item_path(item) %></td>
+   <td><%= link_to 'Mark as Done', mark_item_path(item), remote: true %></td>
+</tr>
+<% end %>

@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
     
     def index
         @items = Item.all
+        @item = Item.new
     end
     
     def new
@@ -13,13 +14,26 @@ class ItemsController < ApplicationController
     end
     
     def create
-        @item = Item.new(item_params)
-        
-        if @item.save
-            redirect_to @item
-        else
-            render 'new'
+         @item = Item.new(item_params)
+         respond_to do |format|
+             if @item.save
+                format.html
+                format.js {render layout: false}
+                format.json { render json: @item, status: :created, location: @item }
+             else
+                format.html { render action: "create" }
+                format.json { render json: @item.errors, status: :unprocessable_entity }
+             end 
         end
+        
+        
+        # @item = Item.new(item_params)
+        
+        # if @item.save
+        #     redirect_to @item
+        # else
+        #     render 'new'
+        # end
     end
     
     def edit
@@ -45,13 +59,17 @@ class ItemsController < ApplicationController
     
     def mark
         @item = Item.find(params[:id])
-        
-        if @item.update(done: true)
-            redirect_to '/items'
-        else
-            logger.debug "cannot mark as done"
-        end
-        
+        @items= Item.all
+         respond_to do |format|
+             if @item.update(done: true)
+                format.html
+                format.js {render layout: false}
+                format.json { render json: @items, status: :marked, location: @items }
+             else
+                format.html { render action: "mark" }
+                format.json { render json: @item.errors, status: :unprocessable_entity }
+             end
+        end     
     end
     
     def show_completed
