@@ -2,8 +2,8 @@
 <tr>
    <td><%= item.name %></td>
    <td><%= item.date %></td>
-   <td><%= link_to 'Show', item_path(item) %></td>
-   <td><%= link_to 'Edit', edit_item_path(item) %></td>
-   <td><%= link_to 'Mark as Done', mark_item_path(item), remote: true %></td>
+   <td><%= link_to 'Show', item_path(item), class: "badge badge-primary" %>
+   <%= link_to 'Edit', edit_item_path(item), class: "badge badge-primary"%>
+   <%= link_to 'Mark as Done', mark_item_path(item), remote: true, class: "badge badge-primary"%></td>
 </tr>
 <% end %>
