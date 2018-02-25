@@ -1,1 +1,4 @@
 $("#items").html("<%= escape_javascript(render @items) %>")
+<!--$( "<tr><th>To-do Item</th><th>Due Date</th></tr>" ).prepend( "#items" );-->
+
+$("#items").prepend("<tr><th>To-do Item</th><th>Due Date</th></tr>")
