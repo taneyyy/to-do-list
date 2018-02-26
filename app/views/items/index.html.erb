@@ -15,7 +15,7 @@ function hideAddForm(id) {
 <div class="container">
     <h1>List</h1>
     <div class="row">
-        <button class="btn btn-lg btn-success btn-block" onClick="showAddForm('#add_new_item')">Create</button>
+        <button id = "create btn" class="btn btn-lg btn-success btn-block" onClick="showAddForm('#add_new_item')">Create</button>
     </div>
     
     
@@ -37,7 +37,8 @@ function hideAddForm(id) {
             </div>
             <div class= "col">
                  <lable>  </lable>
-                 <button class="btn btn-danger" onClick="hideAddForm('#add_new_item')">Cancel</button>
+                 <!--<button class="btn btn-secondary" onClick="hideAddForm('#add_new_item')">Cancel</button>-->
+                 <%= link_to 'Cancel', items_path, class: 'btn btn-secondary', onClick: "hideAddForm('#add_new_item')" %>
             </div>
             <br>
     </div>        

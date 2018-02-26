@@ -1,2 +1,27 @@
-<h1>TO-DO LIST</h1>
-<%= link_to 'Open List', controller: 'items' %>
+<div>
+    <style>
+        body {
+            background: url( asset-path('pen-calendar-to-do-checklist.jpg') ) no-repeat;
+            background-size: 100% 100%;
+        }
+        .content-box {
+            box-sizing: border-box;
+            border: 2px solid #1abc9c;
+            text-align: center;
+            margin-top: 20%;
+            padding: 30px;
+        }
+    </style>
+    <body>
+        <div class="content-box">
+            <h1>TO-DO LIST</h1>
+            <div class="btn btn-primary btn-open">
+                <%= link_to 'Open List', items_path(@product), :class => "btn", :style=>'color:#FFFFFF;' %>
+            </div>
+    
+        </div>
+    </body>
+    
+    
+</div>
+
