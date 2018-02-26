@@ -1,23 +1,22 @@
 
 
-    <%= form_with model: @item, local: true do |form| %>
-    
+<%= form_with model: @edit_item, id:"edit_item_form" do |form| %>
+        <div class="form-row" id="edit_item_control">
+                <div class="form-group col-md-6">
+                    <%= form.label :name, 'Item Name:'%><br>
+                    <%= form.text_field :name, class: "form-control"%>
+                </div>
         
-    
-        <p>
-            <%= form.label :name, 'Item Name' %><br>
-            <%= form.text_field :name %>
-        </p>
-        
-        <p>
-            <%= form.label :date, 'Due Date (yyyy-mm-dd)' %><br>
-            <%= form.text_field :date %>
-        </p>
-        
-        <p>
-            <%= form.submit 'Save Item'%>
-        </p>
-        
-    
-    <% end %>
+               <div class="form-group col-md-6">
+                    <%= form.label :date, 'Due Date (yyyy-mm-dd):' %><br>
+                    <%= form.text_field :date, class: "form-control" %>
+                </div>
+                
+                <div class= "col">
+                     <lable>  </lable>
+                     <button class="btn btn-danger" onClick="hideAddForm('#edit_item_control')">Hide Details</button>
+                </div>
+                <br>
+        </div>        
+<% end %>
     

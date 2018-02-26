@@ -5,10 +5,6 @@ class ItemsController < ApplicationController
         @item = Item.new
     end
     
-    def new
-        @item = Item.new
-    end
-    
     def show
         @item = Item.find(params[:id])
     end
@@ -26,25 +22,18 @@ class ItemsController < ApplicationController
              end 
         end
         
-        
-        # @item = Item.new(item_params)
-        
-        # if @item.save
-        #     redirect_to @item
-        # else
-        #     render 'new'
-        # end
     end
     
     def edit
-        @item = Item.find(params[:id])
+        @edit_item = Item.find(params[:id])
+        
     end
     
     def update
         @item = Item.find(params[:id])
         
         if @item.update(item_params)
-            redirect_to @item
+            redirect_to '/items'
         else
             render 'edit'
         end
@@ -62,8 +51,8 @@ class ItemsController < ApplicationController
         @items= Item.all
          respond_to do |format|
              if @item.update(done: true)
-                format.html
-                format.js {render layout: false}
+                format.html 
+                format.js   {render layout: false}
                 format.json { render json: @items, status: :marked, location: @items }
              else
                 format.html { render action: "mark" }

@@ -1,8 +1,26 @@
+<script>
+function showAddForm(id) {
+    para =  $(id);
+    para.removeAttr("hidden");
+}
+
+function hideAddForm(id) {
+    para =  $(id);
+    para.attr("hidden","true");
+}
+</script>
+
+<%= render 'navbar' %>
+
 <div class="container">
     <h1>List</h1>
+    <div class="row">
+        <button class="btn btn-lg btn-success btn-block" onClick="showAddForm('#add_new_item')">Create</button>
+    </div>
+    
     
     <%= form_with(model: @item) do |form| %>
-    <div class="form-row">
+    <div class="form-row" id= "add_new_item" hidden>
             <div class="form-group col-md-6">
                 <%= form.label :name, 'Item Name:' %><br>
                 <%= form.text_field :name, class: "form-control" %>
@@ -15,12 +33,20 @@
             
             <div class= "col">
                  <lable>  </lable>
-                 <%= form.submit 'Save Item', class: "btn btn-primary" %>
+                 <%= form.submit 'Add To List ', class: "btn btn-primary"%>
+            </div>
+            <div class= "col">
+                 <lable>  </lable>
+                 <button class="btn btn-danger" onClick="hideAddForm('#add_new_item')">Cancel</button>
             </div>
             <br>
     </div>        
-       
     <% end %>
+    
+    
+    <form id="edit_item_form">
+    </form>
+    
     <br>
     <table id="items" class="table table-hover text-center" >
         <thead>
@@ -35,7 +61,7 @@
         </tbody>    
     </table>
     
-    <%= link_to 'Show completed Items', show_completed_path %>
+    
     <br>    
 </div>
 
