@@ -1,12 +1,18 @@
 <script>
-function showAddForm(id) {
-    para =  $(id);
+function showAddForm(id1, id2) {
+    para =  $(id1);
     para.removeAttr("hidden");
+    
+    btn = $(id2);
+    btn.attr("hidden","true");
 }
 
-function hideAddForm(id) {
-    para =  $(id);
+function hideAddForm(id1, id2) {
+    para =  $(id1);
     para.attr("hidden","true");
+    
+    btn = $(id2);
+    btn.removeAttr("hidden");
 }
 </script>
 
@@ -15,7 +21,7 @@ function hideAddForm(id) {
 <div class="container">
     <h1>List</h1>
     <div class="row">
-        <button id = "create btn" class="btn btn-lg btn-success btn-block" onClick="showAddForm('#add_new_item')">Create</button>
+        <button id = "create_btn" class="btn btn-lg btn-success btn-block" onClick="showAddForm('#add_new_item', '#create_btn')">Create</button>
     </div>
     
     
@@ -33,12 +39,11 @@ function hideAddForm(id) {
             
             <div class= "col">
                  <lable>  </lable>
-                 <%= form.submit 'Add To List ', class: "btn btn-primary"%>
+                 <%= form.submit 'Add To List ', class: "btn btn-primary", onClick: "hideAddForm('#add_new_item', '#create_btn')"%>
             </div>
             <div class= "col">
                  <lable>  </lable>
-                 <!--<button class="btn btn-secondary" onClick="hideAddForm('#add_new_item')">Cancel</button>-->
-                 <%= link_to 'Cancel', items_path, class: 'btn btn-secondary', onClick: "hideAddForm('#add_new_item')" %>
+                 <%= link_to 'Cancel', items_path, class: 'btn btn-secondary', onClick: "hideAddForm('#add_new_item', '#create_btn')" %>
             </div>
             <br>
     </div>        
