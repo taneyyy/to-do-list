@@ -1,18 +1,10 @@
 <script>
-function showAddForm(id1, id2) {
+function toggleForm(id1, id2) {
     para =  $(id1);
     para.removeAttr("hidden");
     
     btn = $(id2);
     btn.attr("hidden","true");
-}
-
-function hideAddForm(id1, id2) {
-    para =  $(id1);
-    para.attr("hidden","true");
-    
-    btn = $(id2);
-    btn.removeAttr("hidden");
 }
 </script>
 
@@ -23,31 +15,32 @@ function hideAddForm(id1, id2) {
     <div class="row">
          <div class="col-4 "></div>
          <div class="col-4 text-center">
-        <button id = "create_btn" class="btn btn-lg btn-outline-success btn-block" onClick="showAddForm('#add_new_item', '#create_btn')">Add New To-Do</button>
+        <button id = "create_btn" class="btn btn-lg btn-outline-success btn-block" onClick="toggleForm('#add_new_item', '#create_btn')">Add New To-Do</button>
         </div>
         <div class="col-4"></div>
     </div>
     </br>
-    
+  
     <%= form_with(model: @item) do |form| %>
+
     <div class="form-row" id= "add_new_item" hidden>
             <div class="form-group col-md-6">
                 <%= form.label :name, 'Item Name:' %><br>
-                <%= form.text_field :name, class: "form-control" %>
+                <%= form.text_field :name, class: "form-control", id: "item_name", :include_blank => true %>
             </div>
     
            <div class="form-group col-md-6">
                 <%= form.label :date, 'Due Date (yyyy-mm-dd):' %><br>
-                <%= form.text_field :date, class: "form-control" %>
+                <%= form.date_field :date, class: "form-control" %>
             </div>
             
             <div class= "col">
                  <lable>  </lable>
-                 <%= form.submit 'Add To List ', class: "btn btn-primary", onClick: "hideAddForm('#add_new_item', '#create_btn')"%>
+                 <%= form.submit 'Add To List ', class: "btn btn-primary"%>
             </div>
             <div class= "col">
                  <lable>  </lable>
-                 <%= link_to 'Cancel', items_path, class: 'btn btn-secondary', onClick: "hideAddForm('#add_new_item', '#create_btn')" %>
+                 <%= link_to 'Cancel', items_path, class: 'btn btn-secondary', onClick: "toggleForm('#create_btn','#add_new_item')" %>
             </div>
             <br>
     </div>        
