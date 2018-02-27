@@ -4,15 +4,28 @@
 #
 # Table name: items
 #
-#  id         :integer          not null, primary key
+#  id         :integer        not null, primary key
 #  name       :string
 #  date       :date
+#  done       :boolean
 #
 
-one:
-  name: Test
+item_test:
+  name: test
   date: 2018-02-24
+  done: false
 
-two:
-  name: MyText
+item_laundry:
+  name: laundry
   date: 2018-02-24
+  done: true
+  
+item_sort:
+  name: sort
+  date: 2018-02-25
+  done: false
+  
+item_navbar:
+  name: navbar
+  date: 2018-02-25
+  done: true

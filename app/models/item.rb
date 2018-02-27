@@ -6,6 +6,7 @@
 #  id         :integer          not null, primary key
 #  name       :string
 #  date       :date
+#  done       :boolean
 #
 
 class Item < ApplicationRecord

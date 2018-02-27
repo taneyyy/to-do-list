@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   delete 'items', to: 'items#delete_all', as: 'delete_all'
   
   resources :items
-  
-  post 'items/new'
+
   
   get 'items/:id/mark', to: 'items#mark', as: 'mark_item'
   
