@@ -19,11 +19,15 @@ function hideAddForm(id1, id2) {
 <%= render 'navbar' %>
 
 <div class="container">
-    <h1>List</h1>
+    <br>
     <div class="row">
-        <button id = "create_btn" class="btn btn-lg btn-success btn-block" onClick="showAddForm('#add_new_item', '#create_btn')">Create</button>
+         <div class="col-4 "></div>
+         <div class="col-4 text-center">
+        <button id = "create_btn" class="btn btn-lg btn-outline-success btn-block" onClick="showAddForm('#add_new_item', '#create_btn')">Add New To-Do</button>
+        </div>
+        <div class="col-4"></div>
     </div>
-    
+    </br>
     
     <%= form_with(model: @item) do |form| %>
     <div class="form-row" id= "add_new_item" hidden>
@@ -55,7 +59,7 @@ function hideAddForm(id1, id2) {
     
     <br>
     <table id="items" class="table table-hover text-center" >
-        <thead>
+        <thead  class="thead-dark">
             <tr>
                 <th scope="col">To-do Item</th>
                 <th scope="col">Due Date</th>

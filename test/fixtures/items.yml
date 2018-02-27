@@ -1,7 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# == Schema Information
+#
+# Table name: items
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  date       :date
+#
+
 one:
-  name: MyText
+  name: Test
   date: 2018-02-24
 
 two:
