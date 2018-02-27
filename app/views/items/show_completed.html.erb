@@ -28,6 +28,9 @@
          <div class="btn btn-primary btn-open">
             <%= link_to 'Back to List', items_path, :class => "btn", :style=>'color:#FFFFFF;' %>
          </div>
+         <div class="btn btn-danger btn-open">
+            <%= link_to 'Delete All', items_path, :class => "btn", :style=>'color:#FFFFFF;', action: "delete_all", method: :delete %>
+         </div>
         </div>
         <div class="col-4"></div>
     </div>

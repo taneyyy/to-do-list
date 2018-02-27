@@ -62,6 +62,12 @@ class ItemsController < ApplicationController
         render 'show_completed'
     end
     
+    def delete_all
+        @items = Item.where(:done => true)
+        @items.destroy_all
+        
+        redirect_to show_completed_path
+    end
     
     private
         def item_params
