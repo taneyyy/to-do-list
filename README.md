@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To-Do List Web App Using Ruby on Rails
 
-Things you may want to cover:
+On home page, click "Open List".
 
-* Ruby version
+In navbar,
 
-* System dependencies
+List:
+      - Display current not done to-dos
+    
+      - Clicking "Add To-Do" will show a empty text field form for creating new To-Dos.
+            
+        Clicking "Add to List" will add the to-do item, enter "name" (requried) and use canlendar picker to choose a due date(optional)
+      
+        Clicking "Cancel" will hide the form and show the create button
+      
+      - Clicking to-do items can edit current to-dos, then clicking "Save" can redirect to main list
+    
+      - Clicking "mark as done" can mark this to-do, and it will be removed from current list to completed list
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Completed List:
+      
+      - Display current done to-dos
+      
+      - Clicking "Delete" can delete to-do from completed list
+      
+      - Clicking navbar-"List" or "Back to List" will go back to main list
+      
+      - Clicking "Delete All" can delete all completed items from completed list

@@ -26,12 +26,12 @@ function toggleForm(id1, id2) {
 
     <div class="form-row" id= "add_new_item" hidden>
             <div class="form-group col-md-6">
-                <%= form.label :name, 'Item Name:' %><br>
+                <%= form.label :name, 'Item Name *:' %><br>
                 <%= form.text_field :name, class: "form-control", id: "item_name", :include_blank => true %>
             </div>
     
            <div class="form-group col-md-6">
-                <%= form.label :date, 'Due Date:' %><br>
+                <%= form.label :date, 'Due Date: (optional)' %><br>
                 <%= form.date_field :date, class: "form-control" %>
             </div>
             
